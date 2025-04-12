@@ -16,7 +16,7 @@ function fetchCustomerDetails() {
         return;
     }
 
-    fetch(`${API_URL}/customers/${customerID}`)
+    fetch(`${API_URL}/api/customers/${customerID}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Nie znaleziono klienta.");
@@ -31,7 +31,7 @@ function fetchCustomerDetails() {
             document.getElementById("customer-info").innerHTML = "<p>Błąd: Nie znaleziono klienta.</p>";
         });
 
-    fetch(`${API_URL}/customerOrders/${customerID}`)
+    fetch(`${API_URL}/api/customerOrders/${customerID}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Nie udało się pobrać zamówień.");

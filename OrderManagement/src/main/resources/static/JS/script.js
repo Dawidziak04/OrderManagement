@@ -1,7 +1,10 @@
 const API_URL = "http://localhost:8080";
 
 function fetchCustomers() {
-    fetch('http://localhost:8080/customers')
+    fetch('http://localhost:8080/api/customers',{
+        method: 'GET',
+        credentials: 'include'
+    })
         .then(response => {
             if (!response.ok) {
                 throw new Error("Nie udało się pobrać klientów.");
@@ -44,9 +47,10 @@ function fetchCustomers() {
 function addCustomer() {
     const name = document.getElementById("customer-name").value;
     const surname = document.getElementById("customer-surname").value;
-    fetch(`${API_URL}/postCustomer`, {
+    fetch(`${API_URL}/api/postCustomer`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: 'include',
         body: JSON.stringify({ name, surname })
     })
         .then(response => response.json())
@@ -56,7 +60,10 @@ function addCustomer() {
 
 function deleteCustomer() {
     const id = document.getElementById("customer-id").value;
-    fetch(`${API_URL}/deleteCustomer/${id}`, { method: "DELETE" })
+    fetch(`${API_URL}/api/deleteCustomer/${id}`, {
+        method: "DELETE",
+        credentials: 'include'
+    })
         .then(() => fetchCustomers())
         .catch(error => console.error("Błąd:", error));
 }
@@ -73,7 +80,10 @@ function searchCustomer() {
 }
 
 function fetchOrders() {
-    fetch('http://localhost:8080/orders')
+    fetch('http://localhost:8080/api/orders', {
+        method: "GET",
+        credentials: 'include'
+    })
         .then(response => {
             if (!response.ok) {
                 throw new Error("Nie udało się pobrać zamówień.");
@@ -143,8 +153,9 @@ function addOrder() {
         orderValue: orderValue
     };
 
-    fetch('http://localhost:8080/postOrder', {
+    fetch('http://localhost:8080/api/postOrder', {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -160,7 +171,10 @@ function addOrder() {
 
 function deleteOrder() {
     const id = document.getElementById("order-id").value;
-    fetch(`${API_URL}/deleteOrder/${id}`, { method: "DELETE" })
+    fetch(`${API_URL}/api/deleteOrder/${id}`, {
+        method: "DELETE",
+        credentials: 'include'
+    })
         .then(() => fetchOrders())
         .catch(error => console.error("Błąd:", error));
 }

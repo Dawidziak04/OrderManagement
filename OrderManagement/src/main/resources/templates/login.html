@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="csrf-token" content="${_csrf.token}">
+  <title>Logowanie</title>
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="/JS/login.js" defer></script>
+</head>
+<body>
+<section>
+  <form action="/login" method="post">
+    <h1>Zaloguj się</h1>
+
+    <div class="inputbox">
+      <ion-icon name="mail-outline"></ion-icon>
+      <input type="text" name="username" required>
+      <label for="username">Login</label>
+    </div>
+
+    <div class="inputbox">
+      <ion-icon name="lock-closed-outline"></ion-icon>
+      <input type="password" name="password" required>
+      <label for="password">Hasło</label>
+    </div>
+    <button type="submit">Zaloguj</button>
+
+    <div id="errorMessage" style="color: red; display: none;">
+      Błędny login lub hasło.
+    </div>
+  </form>
+</section>
+</body>
+</html>

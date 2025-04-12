@@ -1,4 +1,3 @@
-// Still in development
 const API_URL = "http://localhost:8080";
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -12,7 +11,7 @@ if (!customerID) {
 }
 
 function fetchCustomerDetails(customerID) {
-    fetch(`${API_URL}/customers/${customerID}`)
+    fetch(`${API_URL}/api/customers/${customerID}`)
         .then(response => {
             if (!response.ok) throw new Error("Błąd pobierania klienta.");
             return response.json();
@@ -45,7 +44,7 @@ document.getElementById("customer-form").addEventListener("submit", function(eve
         surname: document.getElementById("customer-surname").value
     };
 
-    fetch(`${API_URL}/editCustomer`, {
+    fetch(`${API_URL}/api/editCustomer`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedCustomer)

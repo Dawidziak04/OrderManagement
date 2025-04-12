@@ -11,7 +11,7 @@ if (!orderID) {
 }
 
 function fetchOrderDetails(orderID) {
-    fetch(`${API_URL}/orders/${orderID}`)
+    fetch(`${API_URL}/api/orders/${orderID}`)
         .then(response => {
             if (!response.ok) throw new Error("Błąd pobierania zamówienia.");
             return response.json();
@@ -58,7 +58,7 @@ document.getElementById("order-form").addEventListener("submit", function(event)
     };
 
 
-    fetch(`${API_URL}/editOrder`, {
+    fetch(`${API_URL}/api/editOrder`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedOrder)

@@ -2,9 +2,7 @@ package com.pl.OrderManagement.Controller;
 
 import com.pl.OrderManagement.Objects.Administrator;
 import com.pl.OrderManagement.Service.AdministratorService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AdministratorController {
@@ -15,7 +13,7 @@ public class AdministratorController {
         this.administratorService = administratorService;
     }
 
-    @PostMapping("/register")
+    @PostMapping("/api/register")
     public Administrator register(@RequestBody Administrator administrator) {
         return administratorService.register(administrator);
     }
