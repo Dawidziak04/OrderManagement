@@ -120,18 +120,18 @@ INSERT INTO orders (orderid, order_description, order_name, order_value, custome
 📌 Klienci (/customers)
 
 ```sql
-GET /customers - Pobiera listę klientów
-POST /customers - Dodaje nowego klienta
-PUT /editCustomer - Edytuje istniejącego już klienta
-GET /customers/{id} - Pobiera klienta po ID
-DELETE /deleteCustomer/{id} - Usuwa klienta po ID
+GET api/customers - Pobiera listę klientów
+POST api/customers - Dodaje nowego klienta
+PUT api/editCustomer - Edytuje istniejącego już klienta
+GET api/customers/{id} - Pobiera klienta po ID
+DELETE api/deleteCustomer/{id} - Usuwa klienta po ID
 ```
 📌 Zamówienia (/orders)
 ```sql
-GET /orders - Pobiera listę zamówień
-POST /orders - Tworzy nowe zamówienie
-PUT /editOrder - Edytuje istniujące już zamówienie
-GET /orders/{id} - Pobiera zamówienie po ID
-GET /orders/customer/{id} - Pobiera zamówienia klienta
-DELETE /deleteOrder/{id} - Usuwa zamówienie po ID
+GET api/orders - Pobiera listę zamówień
+POST api/orders - Tworzy nowe zamówienie
+PUT api/editOrder - Edytuje istniujące już zamówienie
+GET api/orders/{id} - Pobiera zamówienie po ID
+GET api/orders/customer/{id} - Pobiera zamówienia klienta
+DELETE api/deleteOrder/{id} - Usuwa zamówienie po ID
 ```
